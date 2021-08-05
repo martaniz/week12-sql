@@ -51,8 +51,22 @@ const menu = [
 
 function runMenu() {
     inquirer.prompt(menu)
-    .then((selection) =>{
+    .then((selection) => {
         console.log(selection)
+        if (selection.choice === "VIEW_EMPLOYEES") {
+            //TO VIEW ALL EMP
+const sql = "SELECT * FROM employee"
+db.query(sql, (error, result) => {
+    if(error) {
+        console.log(error)
+    }
+    console.table(result)
+})
+        }   else if (selection.choice === "ADD_ROLE"  ) {
+
+        }   else if (selection.choice === "ADD_EMPLOYEE") {
+
+        }
         // conditional statement to call function below
     })
 }
